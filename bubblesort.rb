@@ -1,12 +1,14 @@
 class BubbleSort
     def sort (collection)
 
-    #set variable (previous) to the first index of the collection
-    #set another variable (current) to the second index of collection
-    #determine length of the collection and save as variable (n)
-    #loop through the collection n number of times 
+    previous = collection[0] #set variable (previous) to the first index of the collection
+    current = collection[1] #set another variable (current) to the second index of collection
+    n = collection.length #determine length of the collection and save as variable (n)
+    while n>0 #loop through the collection n number of times 
         #inside loop, test if previous is greather than current 
-            #if yes, swap places of previous and current in collection: previous moves to index +1 and current moves to index -1
+            if previous > current 
+                current = previous
+                previous = collection[+1] #if yes, swap places of previous and current in collection: previous moves to index +1 and current moves to index -1
                 #then advance previous and current + 1 index place of existing collection
             #if not, leave them where they are
                 #advance previous and current +1 index place of existing collection
