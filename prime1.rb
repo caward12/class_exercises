@@ -1,42 +1,49 @@
 def prime?(number)
     #if number only divisible by itself and 1, it is prime
     #for 0 through number, can number be divided evenly by number(s) other than itself and 1
-    i=2
-    while i < number do
-        if number % i !=0
-            i+=1
-            x = number % i
-            if x != 0
-                puts "#{number} is a prime number"
-                break
-            end 
+    counter = 0
+    factors = (2..number/2).to_a
+    factors.each do |factor|
+        if number % factor == 0
+           counter +=1
         end     
-      
-    puts "#{number} is not a prime number"
-    break 
+    end 
+    if counter == 0
+        puts "#{number} is a prime number"
+    else
+        puts "#{number} is not prime number"
     end
+   
 end
 
 puts prime? (5)
 puts prime? (21)
 puts prime? (10)
+puts prime? (25)
 
 def find_primes(quantity)
    #find the first x number of prime numbers 
-   prime_num_check = 1
+   prime_num_check = 1 #number you are checking if it is prime or not
    prime_count = 0
-   i = 2
-   while quantity != prime_count do
-       if prime_num_check % i !=0
-           i += 1
-           z = x % i
-           if z != 0
-               puts prime_num_check
-               prime_count +=1
-           end
-
-       end        
-   end            
+   primes = []
+   while quantity != prime_count do #while you have not found the specified number of primes 
+        counter = 0
+        factors = (2..prime_num_check/2).to_a
+        factors.each do |factor|
+            if prime_num_check % factor == 0
+            counter +=1
+            end
+        end
+            if counter == 0
+                primes << prime_num_check 
+                prime_count +=1  
+            end 
+          
+        
+         prime_num_check +=1     
+   end       
+   puts "The first #{quantity} numbers are #{primes.join", "}"     
 end
 
 puts find_primes(5)
+puts find_primes(15)
